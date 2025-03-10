@@ -121,9 +121,11 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\myStudentsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\myStudents.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -143,9 +145,27 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\Students.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="HTML\images\Anthony-Mackie-Captain-America-4.jpg" />
+    <Content Include="HTML\images\antman-and-the-wasp-marvel-4.jpg" />
+    <Content Include="HTML\images\black-widow-1.jpg" />
+    <Content Include="HTML\images\chess.jpeg" />
+    <Content Include="HTML\images\dance.jpeg" />
+    <Content Include="HTML\images\Don-cheadle-as-rhodey-Cropped.jpg" />
+    <Content Include="HTML\images\Games.jpeg" />
+    <Content Include="HTML\images\hawkeye.jpg" />
+    <Content Include="HTML\images\lmusic.jpeg" />
+    <Content Include="HTML\images\peter-parker-Cropped.jpg" />
+    <Content Include="HTML\images\Soccer.jpeg" />
+    <Content Include="HTML\images\steve-rogers.jpg" />
+    <Content Include="HTML\images\The-Incredible-Hulk.jpg" />
+    <Content Include="HTML\images\thor-lightning.jpg" />
+    <Content Include="HTML\images\tony-stark-iron-man.jpg" />
+    <Content Include="HTML\images\Vision-Civil-War-Cropped.jpg" />
+    <Content Include="HTML\images\Wanda-Scarlet-Witch-Cropped.jpg" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -163,6 +183,11 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="HTML\Boitshoko.html" />
+    <Content Include="HTML\Gundo.html" />
+    <Content Include="HTML\Lethabo.html" />
+    <Content Include="HTML\Msizi.html" />
+    <Content Include="HTML\Ritshidze1.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -177,10 +202,10 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\myStudents\StudentsView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />

@@ -1,0 +1,54 @@
+﻿@model IEnumerable<MsiziGumede2StudyGroup.Models.myStudents>
+@{
+    ViewBag.Title = "StudentsView";
+}
+
+<h2>StudentsView</h2>
+<table class="table table-bordered">
+
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.StudentNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Surname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+
+        <th>Link to personal page</th>
+    </tr>
+
+
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.StudentNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Surname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+
+            <td>
+                <button onclick="window.location.href='@Url.Content(item.myLink)'">
+
+                    Link
+                </button>
+            </td>
+        </tr>
+    }
+
+</table>
+
