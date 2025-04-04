@@ -14,16 +14,13 @@
             <th>@Html.DisplayNameFor(model => model.Surname)</th>
             <th>@Html.DisplayNameFor(model => model.Email)</th>
             <th>Link to personal page</th>
-            <th>Delete</th> 
+            <th>Delete</th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model)
         {
-            var nameLower = item.Name.ToLower();
-            var redClass = nameLower.StartsWith("B") ? "highlight-red" : "";
-
-            <tr class="@redClass">
+            <tr>
                 <td>@Html.DisplayFor(modelItem => item.StudentNumber)</td>
                 <td>@Html.DisplayFor(modelItem => item.Name)</td>
                 <td>@Html.DisplayFor(modelItem => item.Surname)</td>
@@ -35,7 +32,7 @@
                 </td>
                 <td>
                     <button onclick="removeRow(this)" class="btn btn-danger">
-                        Remove
+                        Delete
                     </button>
                 </td>
             </tr>
@@ -43,31 +40,24 @@
     </tbody>
 </table>
 
-
 <script>
     function removeRow(button) {
-        // Get the <tr> element containing this button and remove it
-        var row = button.closest("tr");
-        row.remove();
+        button.closest("tr").remove(); // Removes row when "Remove" button is clicked
     }
 
-    // If you want to use JS instead of Razor to highlight rows dynamically:
     document.addEventListener("DOMContentLoaded", function () {
         let rows = document.querySelectorAll("#studentsTable tbody tr");
+
         rows.forEach(row => {
-            let name = row.cells[1].textContent.trim(); // Name is in the 2nd column
-            if (name.startsWith("B") || name.startsWith("b")) {
-                row.style.color = "red";
+            let nameCell = row.cells[1]; // Name is in the second column
+            let name = nameCell.textContent.trim();
+
+            if (name.charAt(0).toUpperCase() === "B") {
+                row.style.color = "red"; // Change text color to red
             }
         });
     });
 </script>
 
-<!-- CSS Styling -->
-<style>
-    .highlight-red {
-        color: red;
-    }
-</style>
 
 
