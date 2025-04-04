@@ -21,7 +21,7 @@
         @foreach (var item in Model)
         {
             var nameLower = item.Name.ToLower();
-            var redClass = nameLower.StartsWith("s") ? "highlight-red" : "";
+            var redClass = nameLower.StartsWith("B") ? "highlight-red" : "";
 
             <tr class="@redClass">
                 <td>@Html.DisplayFor(modelItem => item.StudentNumber)</td>
