@@ -1,53 +1,73 @@
 ﻿@model IEnumerable<MsiziGumede2StudyGroup.Models.myStudents>
+
 @{
     ViewBag.Title = "StudentsView";
 }
 
 <h2>StudentsView</h2>
-<table class="table table-bordered">
 
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.StudentNumber)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Surname)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Email)
-        </th>
-
-        <th>Link to personal page</th>
-    </tr>
-
-
-
-    @foreach (var item in Model)
-    {
+<table class="table table-bordered" id="studentsTable">
+    <thead>
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.StudentNumber)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Surname)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-
-        <td>
-          <button onclick="window.location.href='@Url.Content(item.myLink)'" class="green-button">
-            Link
-          </button>
-        </td>
+            <th>@Html.DisplayNameFor(model => model.StudentNumber)</th>
+            <th>@Html.DisplayNameFor(model => model.Name)</th>
+            <th>@Html.DisplayNameFor(model => model.Surname)</th>
+            <th>@Html.DisplayNameFor(model => model.Email)</th>
+            <th>Link to personal page</th>
+            <th>Study Buddies</th> <!-- New column for remove button -->
         </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            var nameLower = item.Name.ToLower();
+            var redClass = nameLower.StartsWith("s") ? "highlight-red" : "";
+
+            <tr class="@redClass">
+                <td>@Html.DisplayFor(modelItem => item.StudentNumber)</td>
+                <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                <td>@Html.DisplayFor(modelItem => item.Surname)</td>
+                <td>@Html.DisplayFor(modelItem => item.Email)</td>
+                <td>
+                    <button onclick="window.location.href='@Url.Content(item.myLink)'" class="btn btn-success">
+                        View Page
+                    </button>
+                </td>
+                <td>
+                    <button onclick="removeRow(this)" class="btn btn-danger">
+                        Remove
+                    </button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<!-- JavaScript Section -->
+<script>
+    function removeRow(button) {
+        // Get the <tr> element containing this button and remove it
+        var row = button.closest("tr");
+        row.remove();
     }
 
-</table>
+    // If you want to use JS instead of Razor to highlight rows dynamically:
+    document.addEventListener("DOMContentLoaded", function () {
+        let rows = document.querySelectorAll("#studentsTable tbody tr");
+        rows.forEach(row => {
+            let name = row.cells[1].textContent.trim(); // Name is in the 2nd column
+            if (name.startsWith("S") || name.startsWith("s")) {
+                row.style.color = "red";
+            }
+        });
+    });
+</script>
+
+<!-- CSS Styling -->
+<style>
+    .highlight-red {
+        color: red;
+    }
+</style>
+
 
