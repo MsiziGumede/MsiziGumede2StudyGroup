@@ -56,7 +56,7 @@
         let rows = document.querySelectorAll("#studentsTable tbody tr");
         rows.forEach(row => {
             let name = row.cells[1].textContent.trim(); // Name is in the 2nd column
-            if (name.startsWith("S") || name.startsWith("s")) {
+            if (name.startsWith("M") || name.startsWith("m")) {
                 row.style.color = "red";
             }
         });
