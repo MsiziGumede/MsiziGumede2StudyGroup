@@ -157,3 +157,11 @@ div.bio-section {
     .modules-table tr:nth-child(even) td {
         background-color: #f5f9f5;
     }
+
+.green-button {
+    background-color: green;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}

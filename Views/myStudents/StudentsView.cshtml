@@ -41,12 +41,11 @@
                 @Html.DisplayFor(modelItem => item.Email)
             </td>
 
-            <td>
-                <button onclick="window.location.href='@Url.Content(item.myLink)'">
-
-                    Link
-                </button>
-            </td>
+        <td>
+          <button onclick="window.location.href='@Url.Content(item.myLink)'" class="green-button">
+            Link
+          </button>
+        </td>
         </tr>
     }
 
