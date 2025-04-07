@@ -45,20 +45,21 @@
         button.closest("tr").remove(); // Removes row when "Remove" button is clicked
     }
 
-    window.onload = function () {
-        let table = document.getElementById('studentsTable');
-        let rows = table.getElementsByTagName('tr'); // Correct scope
+    document.addEventListener("DOMContentLoaded", function () {
+        const table = document.getElementById('studentsTable');
+        const rows = table.getElementsByTagName('tr');
 
-        for (let i = 1; i < table.rows.length; i++) { // rows.length, not row.length
-            const firstName = rows[i].children[1]; // Second column
-            const text = firstName.textContent.trim();
-            const firstLetter = text.charAt(0).toUpperCase(); // Get uppercase first letter
-
-            if (firstLetter === "M") {
-                rows[i].style.color = "red"; // Make entire row's text red
+        for (let i = 1; i < rows.length; i++) {
+            const firstNameCell = rows[i].cells[1]; // Second column (First Name)
+            if (firstNameCell) {
+                const firstLetter = firstNameCell.textContent.trim().charAt(0).toUpperCase();
+                if (firstLetter === 'G') {
+                    rows[i].style.color = "red";
+                }
             }
         }
-    };
+    });
+    rows[i].style.setProperty('color', 'red', 'important');
 
 </script>
 
