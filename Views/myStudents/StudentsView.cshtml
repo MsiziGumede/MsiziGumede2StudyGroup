@@ -45,18 +45,21 @@
         button.closest("tr").remove(); // Removes row when "Remove" button is clicked
     }
 
-    document.addEventListener("DOMContentLoaded", function () {
-        let rows = document.querySelectorAll("#studentsTable tbody tr");
+    window.onload = function () {
+        let table = document.getElementById('studentsTable');
+        let rows = table.getElementsByTagName('tr'); // Correct scope
 
-        rows.forEach(row => {
-            let nameCell = row.cells[1]; // Name is in the second column
-            let name = nameCell.textContent.trim();
+        for (let i = 1; i < table.rows.length; i++) { // rows.length, not row.length
+            const firstName = rows[i].children[1]; // Second column
+            const text = firstName.textContent.trim();
+            const firstLetter = text.charAt(0).toUpperCase(); // Get uppercase first letter
 
-            if (name.charAt(0).toUpperCase() === "B") {
-                row.style.color = "red"; // Change text color to red
+            if (firstLetter === "B") {
+                rows[i].style.color = "red"; // Make entire row's text red
             }
-        });
-    });
+        }
+    };
+
 </script>
 
 
