@@ -46,20 +46,24 @@
     }
 
     window.onload = function () {
-        let table = document.getElementById('studentsTable');
-        let rows = table.getElementsByTagName('tr'); // Correct scope
+        const table = document.getElementById('studentsTable');
+        const rows = table.getElementsByTagName('tr');
 
-        for (let i = 1; i < table.rows.length; i++) { // rows.length, not row.length
-            const firstName = rows[i].children[1]; // Second column
-            const text = firstName.textContent.trim();
-            const firstLetter = text.charAt(0).toUpperCase(); // Get uppercase first letter
+        for (let i = 1; i < rows.length; i++) {
+            const firstNameCell = rows[i].cells[1]; // Second column (Name)
+            if (firstNameCell) {
+                const nameText = firstNameCell.textContent.trim();
+                const firstLetter = nameText.charAt(0).toUpperCase();
 
-            if (firstLetter === "B") {
-                rows[i].style.color = "red"; // Make entire row's text red
+                if (firstLetter === "B") {
+                    // Apply text color red to each cell individually
+                    for (let cell of rows[i].cells) {
+                        cell.style.color = "red";
+                    }
+                }
             }
         }
     };
-    rows[i].style.setProperty('color', 'red', 'important');
 
 </script>
 
